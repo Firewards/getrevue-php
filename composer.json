@@ -1,0 +1,29 @@
+{
+    "name": "firewards/getrevue-php",
+    "keywords": ["getrevue", "revue", "api", "newsletter"],
+    "description": "Simple access interface to GetRevue's web API.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Dennis Stücken",
+            "email": "dennis@firewards.com"
+        }
+    ],
+    "require": {
+      "php": ">=7.0",
+      "guzzlehttp/guzzle": "^6.3",
+      "monolog/monolog": "^1.0",
+      "ext-json": "*"
+    },
+    "require-dev": {
+      "phpunit/phpunit": "^6.0"
+    },
+    "autoload": {
+      "psr-4": {
+        "Firewards\\": "src/"
+      }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
