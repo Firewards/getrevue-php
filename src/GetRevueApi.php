@@ -190,7 +190,6 @@ class GetRevueApi
     public function getAccountProfileUrl()
     {
         $request = $this->request('account/me', 'GET');
-        var_dump($request);
         return $request['profile_url'] ?? '';
     }
 

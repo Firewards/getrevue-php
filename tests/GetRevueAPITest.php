@@ -27,7 +27,7 @@ class GetRevueApiTest extends TestCase
     /**
      * @throws Exception
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         include_once(__DIR__ . "/config.php");
 
@@ -88,7 +88,7 @@ class GetRevueApiTest extends TestCase
         $this->assertEquals('lastName', $subscriber['last_name']);
 
         // Sleep some time because revue needs the time for the subscriber to be availabale through the api.
-        sleep(30);
+        sleep(45);
     }
 
     public function testAddExistingSubscriber()
