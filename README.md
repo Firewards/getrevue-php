@@ -3,7 +3,7 @@ Unofficial GetRevue PHP API for [v2](https://www.getrevue.co/api).
 
 This package makes it simple to access GetRevues's web API. Checkout [https://www.getrevue.co/api](https://www.getrevue.co/api) for more information on GetRevue's API.
 
-[![Source Code](https://img.shields.io/badge/source-convertkit--php--api-blue)](https://github.com/Firewards/getrevue-php)
+[![Source Code](https://img.shields.io/badge/source-getrevue--php-blue)](https://github.com/Firewards/getrevue-php)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](https://github.com/Firewards/getrevue-php/blob/master/LICENSE)
 
 ## Install
