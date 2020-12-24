@@ -96,7 +96,7 @@ $list = $this->api->getList(13212);
 
 ## License
 
-The MIT License (MIT). Please see [License File](https://github.com/thephpleague/oauth2-client/blob/master/LICENSE) for more information.
+The MIT License (MIT). Please see [License File](https://github.com/Firewards/getrevue-php/blob/master/LICENSE) for more information.
 
 ## Sponsor
 
