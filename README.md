@@ -1,4 +1,4 @@
-# ConvertKit PHP
+# GetRevue PHP
 Unofficial GetRevue PHP API for [v2](https://www.getrevue.co/api).
 
 This package makes it simple to access GetRevues's web API. Checkout [https://www.getrevue.co/api](https://www.getrevue.co/api) for more information on GetRevue's API.
