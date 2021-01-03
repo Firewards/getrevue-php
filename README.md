@@ -105,4 +105,6 @@ The MIT License (MIT). Please see [License File](https://github.com/Firewards/ge
 
 ## Sponsor
 
+![www.firewards.com](https://www.firewards.com/assets/images/Logo.png)
+
 This package is sponsored by [www.firewards.com](https://www.firewards.com), Firewards makes it easy to setup a referral and rewards program for your email list and newsletter.
