@@ -35,10 +35,12 @@ $api = new \Firewards\GetRevueApi($apiKey);
 ```
 ### Examples
 
+Add a new email to your list of subscribers.
 ```php
 $subscriber = $this->api->addSubscriber("getrevue@firewards.com", 'firstName', 'lastName');
 
 /**
+Return example:
 array(6) {
   ["id"]=>
   int(42840832)
@@ -56,14 +58,16 @@ array(6) {
  */
 ```
 
+Unsubscribe an existing subscriber by email. *Revue is not returning any success or failure codes.*
 ```php
-if ($this->api->unsubscribe("getrevue@firewards.com")) {
+if ($api->unsubscribe("getrevue@firewards.com")) {
     // unsbuscribed
 }
 ```
 
+Get all subscribers and iterate through them. *Revue's API does not support paging, yet. The API will return 5000 subscribers.*
 ```php
-foreach ($this->api->getSubscribers() as $subscriber) {
+foreach ($api->getSubscribers() as $subscriber) {
     /*
      * array(6) {
           ["id"]=>
@@ -83,15 +87,16 @@ foreach ($this->api->getSubscribers() as $subscriber) {
 }
 ```
 
-
+Get all available lists (subscriber groups).
 ```php
-foreach ($this->api->getLists()) {
+foreach ($api->getLists()) {
     
 }
 ```
 
+Return information about a specific list using its id.
 ```php
-$list = $this->api->getList(13212);
+$list = $api->getList(13212);
 ```
 
 ## License
