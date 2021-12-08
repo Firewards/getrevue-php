@@ -17,8 +17,7 @@ namespace Firewards;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Request;
-use GuzzleHttp\RequestOptions;
-use http\Client\Response;
+use GuzzleHttp\Psr7\Response;
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
 
@@ -67,28 +66,41 @@ class GetRevueApi
     protected $lastResponse;
 
     /**
+     * @var Logger
+     */
+    protected $debugLogger;
+
+    /**
+     * @return Response
+     */
+    public function getLastResponse(): Response
+    {
+        return $this->lastResponse;
+    }
+
+    /**
      * GetRevueApi constructor.
      * @param $api_key
      * @param bool $debug
-     * @throws \Exception
+     * @param array $guzzleHttpOptions
      */
-    public function __construct($api_key, $debug = false)
+    public function __construct($api_key, $debug = false, $guzzleHttpOptions = ['verify' => false])
     {
 
         $this->api_key = $api_key;
         $this->debug = $debug;
-        $this->client = new Client();
+        $this->client = new Client($guzzleHttpOptions);
 
         if ($debug) {
-            $this->debug_logger = new Logger('revue-debug');
-            $this->debug_logger->pushHandler(new StreamHandler(__DIR__ . '/../debug.log', Logger::DEBUG));
+            $this->debugLogger = new Logger('revue-debug');
+            $this->debugLogger->pushHandler(new StreamHandler(__DIR__ . '/../debug.log', Logger::DEBUG));
         }
     }
 
     private function logMessage($message)
     {
         if ($this->debug) {
-            $this->debug_logger->info($message);
+            $this->debugLogger->info($message);
         }
     }
 
@@ -251,7 +263,6 @@ class GetRevueApi
             $headers['Content-Length'] = strlen($request_body);
             $request = new Request($method, $url, $headers, $request_body);
         }
-
         $this->lastResponse = $this->client->send($request, $options);
 
         $status_code = $this->lastResponse->getStatusCode();
@@ -259,6 +270,7 @@ class GetRevueApi
         // If not between 200 and 300
         if (!preg_match("/^[2-3][0-9]{2}/", $status_code)) {
             $this->logMessage(sprintf("Response code is %s.", $status_code));
+
             return false;
         }
 
@@ -275,4 +287,3 @@ class GetRevueApi
     }
 
 }
-
